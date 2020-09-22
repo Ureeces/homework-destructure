@@ -47,10 +47,14 @@ let items = [
     { color: 'red', shape: 'square' },
 ];
 
-items.map((item) => {
-    const {color, shape} = item;
-    console.log(color, shape);
-});
+// // Explicitly
+// items.map((item) => {
+//     const {color, shape} = item;
+//     console.log(color, shape);
+// });
+
+// Implicitly
+items.map(({color, shape}) => console.log(`${color} ${shape}`));
 
 //5.  Deconstruct the complete car object literal
     //Find a way to call just one variable name for each of the carTypes
@@ -78,6 +82,21 @@ const car = {
         ],
     },
 };
+
+const {
+    carTypes: {one, two},
+    repairPlaces: {otherShops}
+} = car;
+
+let [third, fourth, ...fifth] = otherShops;
+
+console.log(third);
+console.log(fourth);
+console.log(fifth);
+
+console.log(one);
+console.log(two);
+
 
 /*6.  Create a class Cars that takes make, color, and year
     Instantiate 4 cars, car1,car2, car3, car4
