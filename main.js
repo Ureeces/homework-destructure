@@ -39,12 +39,18 @@ console.log(ocean);
 console.log(names);
 
 
-//4.  Using destructuring create a new array that maps through the items array and from each item in the loop, a string of the color and shape values should be logged. for example one loop should return 'blue circle' from the items array. This is not a function. you will just map and use the items array as the only array.    
+//4.  Using destructuring create a new array that maps through the items array and from each item in the loop, a string of the color and shape values should be logged. 
+// For example one loop should return 'blue circle' from the items array. This is not a function. you will just map and use the items array as the only array.    
 let items = [
     { color: 'blue', shape: 'circle' },
     { color: 'orange', shape: 'triangle' },
     { color: 'red', shape: 'square' },
 ];
+
+items.map((item) => {
+    const {color, shape} = item;
+    console.log(color, shape);
+});
 
 //5.  Deconstruct the complete car object literal
     //Find a way to call just one variable name for each of the carTypes
