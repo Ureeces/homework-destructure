@@ -109,14 +109,11 @@ class Car {
         this.color = color;
         this.year = year;
     }
-}
 
-// const myCars = {
-//     car1: new Car('car1', 'blue', '2000'),
-//     car2: new Car('car2', 'red', '2010'),
-//     car3: new Car('car3', 'green', '2020'),
-//     car4: new Car('car4', 'yellow', '1980')
-// };
+    toString() {
+        return `Make: ${this.make}, Color: ${this.color}, Year: ${this.year}`;
+    }
+}
 
 const myCars = [
     new Car('car1', 'blue', '2000'),
@@ -132,10 +129,10 @@ let [
     car4
 ] = myCars;
 
-console.log(car1);
-console.log(car2);
-console.log(car3);
-console.log(car4);
+console.log(car1.toString());
+console.log(car2.toString());
+console.log(car3.toString());
+console.log(car4.toString());
 
  //7. Using destructuring, choose all the schools with a gpa higher than 3.5,
       //and list the chosen object ascending by major and log the average gpa,
