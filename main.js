@@ -102,8 +102,41 @@ console.log(two);
     Instantiate 4 cars, car1,car2, car3, car4
     Using destructuring declare the make, color and year variables for each car and console.log the variables
     OR SHOULD I SAY declare the make, color and year and list a string for each showing their values.*/
-    
-    
+
+class Car {
+    constructor(make, color, year){
+        this.make = make;
+        this.color = color;
+        this.year = year;
+    }
+}
+
+// const myCars = {
+//     car1: new Car('car1', 'blue', '2000'),
+//     car2: new Car('car2', 'red', '2010'),
+//     car3: new Car('car3', 'green', '2020'),
+//     car4: new Car('car4', 'yellow', '1980')
+// };
+
+const myCars = [
+    new Car('car1', 'blue', '2000'),
+    new Car('car2', 'red', '2010'),
+    new Car('car3', 'green', '2020'),
+    new Car('car4', 'yellow', '1980')
+];
+
+let [
+    car1,
+    car2,
+    car3,
+    car4
+] = myCars;
+
+console.log(car1);
+console.log(car2);
+console.log(car3);
+console.log(car4);
+
  //7. Using destructuring, choose all the schools with a gpa higher than 3.5,
       //and list the chosen object ascending by major and log the average gpa,
       //use method chaining if you can
@@ -115,3 +148,23 @@ let schoolArray = [
   { school: 'Peekskill', major: 'liberal arts', year: 'freshman', gpa: 4.0 },
   { school: 'Anopram', major: 'accounting', year: 'senior', gpa: 3.7 },
 ];
+
+
+let getAverageAs = (schools) => {
+    let avg = schools
+        .filter(({gpa}) => gpa > 3.5) // Filters out all objects with gpas less than 3.5
+        .sort((schoolA, schoolB) => schoolA.major > schoolB.major ? 1 : -1) // Sorts objects in alphabetical order of major
+        .reduce((total, {gpa}, index, arr) => {
+            total += gpa;
+            if(index === arr.length - 1) {
+                return total / arr.length;
+            } // if its the last element, we want to return the average, not the total
+
+            return total;
+        }, 0);
+    
+    return avg.toFixed(1);
+}
+
+console.log(getAverageAs(schoolArray));
+
